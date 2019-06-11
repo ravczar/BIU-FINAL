@@ -1,0 +1,9 @@
+<h2>My People</h2>
+<ul class="heroes">
+  <li *ngFor="let person of people">
+    <a routerLink="/detail/{{person.id}}">
+      <span class="badge">{{person.id}}</span> {{person.name}} 
+      <!-- {{person.surname}} {{person.email}} {{person.password}} {{person.pet}} {{person.newsletter}} -->
+    </a>
+  </li>
+</ul>
