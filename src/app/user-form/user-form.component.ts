@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, FormControl, Validators, AbstractControl } from
 import { debounceTime } from 'rxjs/operators';
 import { MessageService } from '../services/message.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { PersonService } from '../services/person.service';
 
 function passwordMatcher(c: AbstractControl):{[key:string]:boolean}|null{   
   let passwordControl = c.get('password');   
@@ -14,7 +15,6 @@ function passwordMatcher(c: AbstractControl):{[key:string]:boolean}|null{
   return {
     'matchPasswords':true
   }; 
-
 } 
 
 @Component({
@@ -41,6 +41,7 @@ export class UserFormComponent implements OnInit {
     private formBuilder: FormBuilder,
     private messageService: MessageService, 
     private _snackBar: MatSnackBar,
+    private personService: PersonService,
     ) { }
 
   ngOnInit() {
@@ -54,8 +55,8 @@ export class UserFormComponent implements OnInit {
         Validators.pattern( '^[a-zA-Z]{2,50}$' )]],
       email:  ['',[Validators.required, 
         Validators.email]],
-      phone:  ['',[Validators.required, 
-        Validators.pattern('[0-9]{9}')]],
+      phone:  ['',[Validators.required, //[0-9]{9} polskie numer bez spacji
+        Validators.pattern('[+][(][0-9]{2}[)][0-9]{3}([-]||[]||[ ])[0-9]{3}([-]||[]||[ ])[0-9]{3}')]],
       username:  ['',[Validators.required, 
         Validators.pattern('^[A-Za-z0-9_]{1,15}$')]],
       newsletter: ['',[Validators.required, 
@@ -103,7 +104,7 @@ export class UserFormComponent implements OnInit {
       firstName: 'Rafal',
       lastName: 'Czarnecki',
       email: 'ravczar@gmail.com',
-      phone: '777222555',
+      phone: '+(48)777-111-555',
       username: 'ravczar',
       newsletter: '1'
     });
@@ -142,13 +143,24 @@ export class UserFormComponent implements OnInit {
       duration: 4000,
     });
   }
+  setNewUserInPersonService(Id:number, Name:string, Surname:string, Email: string, Phone: string, 
+    Username: string, Password: string, PreviousPassword: string, Pet: string, City: string, 
+    Street: string, Building: string, Flat: string, Newsletter: boolean): void {
+    
+      this.personService.setPerson(Id, Name, Surname, Email, Phone, 
+        Username, Password, PreviousPassword, Pet, City, 
+        Street, Building, Flat, Newsletter);
+  }
 
   onSubmit() {
     
     if(this.userForm.valid){
       let username = this.userForm.get("username").value;
       this.messageService.add('User-Form: Submited form scuccessfully');
-      this.viewUserDataEntered();
+      let allDataToBeTransferedToNewUserProfile = this.viewUserDataEntered(); //  tu są dane, zrób by zwra
+      /* setNewUserInPersonService(Id:number, Name:string, Surname:string, Email: string, Phone: string, 
+        Username: string, Password: string, PreviousPassword: string, Pet: string, City: string, 
+        Street: string, Building: string, Flat: string, Newsletter: boolean); */
       this.openSuccessSnackBar(username, 'Close');
       this.userForm.reset();
     }

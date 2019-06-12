@@ -45,7 +45,7 @@
             <input class="form-control" type="text"  formControlName="email" [ngClass]="{
               'is-invalid':(userForm.get('email').touched || userForm.get('email').dirty)
                 &&!userForm.get('email').valid
-            }" title="Email must be a valid email address. Just like retard@xx.yy">
+            }" title="Email must be a valid email address. Just like 'retard@xx.yy'">
           </div>
           <span class="text-danger" *ngIf="userForm.get('email').errors?.email">
               Email must be a valid email address. -> retard@xx.yy
@@ -58,9 +58,9 @@
             <input class="form-control" type="text"  formControlName="phone" [ngClass]="{
               'is-invalid':(userForm.get('phone').touched || userForm.get('phone').dirty)
                 &&!userForm.get('phone').valid
-            }" title="Wrong Phone number! -> Right pattern: 777222999, no spaces or dashes.">
+            }" title="Right pattern: +(48)737-727-327 / +(48)777111222 /+(48)777 111 222">
             <span class="text-danger" *ngIf="userForm.get('phone').errors?.pattern">
-              Wrong Phone number! -> Right pattern: 777222999, no spaces or dashes.
+              Wrong Phone number! -> Right pattern: +(48)737-727-327 / +(48)777111222 /+(48)777 111 222 .
             </span>
           </div>
         </div>

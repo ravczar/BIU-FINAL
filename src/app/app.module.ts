@@ -6,9 +6,8 @@ import { FormsModule, ReactiveFormsModule}    from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 
 
-// Angular - Material
+// Angular - Material /|\ Disabling animations -> //import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-//import { NoopAnimationsModule } from '@angular/platform-browser/animations';  // Disabling animations
 import { MatButtonModule, MatCheckboxModule } from '@angular/material';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
