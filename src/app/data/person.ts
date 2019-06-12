@@ -12,7 +12,7 @@ export class Person {
     adress: {
       city: string;
       street: string;
-      builidng: string;
+      building: string;
       flat: string;
     };
   

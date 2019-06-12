@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators, AbstractControl } from "@angular/forms";
 import { debounceTime } from 'rxjs/operators';
+import { MessageService } from '../services/message.service';
 
 function passwordMatcher(c: AbstractControl):{[key:string]:boolean}|null{   
   let passwordControl = c.get('password');   
@@ -21,6 +22,9 @@ function passwordMatcher(c: AbstractControl):{[key:string]:boolean}|null{
   styleUrls: ['./user-form.component.css']
 })
 export class UserFormComponent implements OnInit {
+
+  
+
   // Słownik dla matchPasswordsMsg
   passwordMessages={
     matchPasswords:"Passwords don't MATCH",     
@@ -31,12 +35,18 @@ export class UserFormComponent implements OnInit {
   passwordPatternMsg: string;
 
   userForm: FormGroup;
-  userExists:boolean=false;
-  constructor(private formBuilder: FormBuilder) { }
+  userExists:boolean = false;
+  succesfullySumbitedForm:boolean = false;
+  
+  constructor(
+    private formBuilder: FormBuilder,
+    private messageService: MessageService,
+    ) { }
 
   ngOnInit() {
-
-    // html5pattern.com/  <- ready validators
+    // html5pattern.com/  <- ready validators 
+    this.messageService.add('User-Form: Initializing UserFormComponent');
+    
     this.userForm = this.formBuilder.group({
       firstName: ['',[Validators.required, 
         Validators.pattern( '^[a-zA-Z]{2,20}$' )]], 
@@ -100,19 +110,31 @@ export class UserFormComponent implements OnInit {
     });
   }
 
+  private viewUserDataEntered(): Array<string>{
+    let inputs : Array<string> = new Array<string>();
+    let inputNames : Array<string> = ['First name', 'Last name', 'Email', 'Phone No.', 'Username', 'Password', 'C Password' ];
+    inputs.push(this.userForm.get("firstName").value);
+    inputs.push(this.userForm.get("lastName").value);  
+    inputs.push(this.userForm.get("email").value);  
+    inputs.push(this.userForm.get("phone").value);  
+    inputs.push(this.userForm.get("username").value);  
+    inputs.push(this.userForm.get("pswdGroup.password").value);  
+    inputs.push(this.userForm.get("pswdGroup.cPassword").value);
+    
+      for (let i = 0; i < inputs.length; i++){
+        console.log(inputNames[i] +" : "+ inputs[i]);
+      }
+    
+      return inputs;
+  }
   onSubmit() {
-    let array : Array<string> = new Array<string>();
+    
     if(this.userForm.valid){
-      array.push(this.userForm.get("firstName").value);
-      array.push(this.userForm.get("lastName").value);  
-      array.push(this.userForm.get("email").value);  
-      array.push(this.userForm.get("phone").value);  
-      array.push(this.userForm.get("username").value);  
-      array.push(this.userForm.get("pswdGroup.password").value);  
-      array.push(this.userForm.get("pswdGroup.cPassword").value);
-      alert('SUCCESS!! :-): ' + array );
+      this.messageService.add('User-Form: Submited form scuccessfully');
+      this.viewUserDataEntered();
     }
     else {
+      this.messageService.add('User-Form: Form not submited - recheck fields');
       alert("Please recheck your fileds, some might be still INVALID!")
     }
 }

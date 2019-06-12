@@ -1,10 +1,64 @@
-<div *ngIf="person">
-  <h2>{{person.name | uppercase}} Details</h2>
-  <div><span>id: </span>{{person.id}}</div>
-  <div>
-    <label>name:
-      <input [(ngModel)]="person.name" placeholder="name"/>
-    </label>
+<div *ngIf="person" class="bg-secondary">
+  <h2>User:
+    <span class="text-warning display-3"> 
+      {{person.username | uppercase}}  
+      <fa *ngIf="isInEditMode" class="display-3 text-warning" name="cog" animation="spin"></fa>
+      <i *ngIf="!isInEditMode" class="fa fa-user" aria-hidden="true"></i>
+    </span>
+  </h2> 
+
+  <div class="bg-light">
+      <label>id: </label>
+        <span class="form-control col-2">{{person.id}}</span>
+      <label>Name:</label>
+        <input class="form-control col-2 pagination-centered" *ngIf="isInEditMode" [(ngModel)]="person.name" placeholder="name"/>
+        <span class="form-control col-2" *ngIf="!isInEditMode"> {{person.name}} </span>
+      <label>Surname:</label>
+        <input class="form-control col-2" *ngIf="isInEditMode" [(ngModel)]="person.surname" placeholder="surname"/>
+        <span class="form-control col-2" *ngIf="!isInEditMode"> {{person.surname}} </span>
+      <label>Email:</label>
+        <input class="form-control col-2" *ngIf="isInEditMode" [(ngModel)]="person.email" placeholder="email"/>
+        <span class="form-control col-2" *ngIf="!isInEditMode"> {{person.email}} </span>
+      <label>Phone:</label>
+        <input class="form-control col-2" *ngIf="isInEditMode" [(ngModel)]="person.phone" placeholder="phone"/>
+        <span class="form-control col-2" *ngIf="!isInEditMode"> {{person.phone}} </span>
+      <label>User nickname:</label>
+        <input class="form-control col-2" *ngIf="isInEditMode" [(ngModel)]="person.username" placeholder="user name"/>
+        <span class="form-control col-2" *ngIf="!isInEditMode"> {{person.username}} </span>
+      <label>User password:</label>
+        <input class="form-control col-2" *ngIf="isInEditMode" [(ngModel)]="person.password" placeholder="pass"/>
+        <span class="form-control col-2" *ngIf="!isInEditMode"> {{person.password}} </span>
+      <label>Pet:</label>
+        <input class="form-control col-2" *ngIf="isInEditMode" [(ngModel)]="person.pet" placeholder="pet"/>
+        <span class="form-control col-2" *ngIf="!isInEditMode"> {{person.pet}} </span>
+      <label>City:</label>
+        <input class="form-control col-2" *ngIf="isInEditMode" [(ngModel)]="person.adress.city" placeholder="city"/>
+        <span class="form-control col-2" *ngIf="!isInEditMode"> {{person.adress.city}} </span>
+      <label>Street name:</label>
+        <input class="form-control col-2" *ngIf="isInEditMode" [(ngModel)]="person.adress.street" placeholder="street"/>
+        <span class="form-control col-2" *ngIf="!isInEditMode"> {{person.adress.street}} </span>
+      <label>Builidng Number:</label>
+        <input class="form-control col-2" *ngIf="isInEditMode" [(ngModel)]="person.adress.building" placeholder="build.No."/>
+        <span class="form-control col-2" *ngIf="!isInEditMode"> {{person.adress.building}} </span>
+      <label>Flat Number:</label>
+        <input class="form-control col-2" *ngIf="isInEditMode" [(ngModel)]="person.adress.flat" placeholder="flat No."/>
+        <span class="form-control col-2" *ngIf="!isInEditMode"> {{person.adress.flat}} </span>
+          <label *ngIf="!isInEditMode"> Scores </label>
+            <span class="form-control col-2" *ngIf="!isInEditMode" >Ile rekordów: {{person.score.length}}, wyniki:  {{person.score}}</span>
+          <label *ngIf="!isInEditMode"> Times </label>
+            <span class="form-control col-2" *ngIf="!isInEditMode">Ile rekordów: {{person.score.length}}, czasy: {{person.time}}</span>
+      <label>Wants Newsletter:</label>
+        <input class="form-control col-2" *ngIf="isInEditMode" [(ngModel)]="person.newsletter" placeholder="newsletter"/>
+        <span class="form-control col-2" *ngIf="!isInEditMode"> {{person.newsletter}} </span>
   </div>
-  <button (click)="goBack()">Go Back</button>
+
+  <div id="buttons" class="bg-light">
+    <button type="button" class="btn btn-primary" (click)="goBack()" >
+      Go Back
+    </button> 
+    <button type="button" class="btn btn-success" (click)="toggleEditMode()" >
+      {{buttonString}}
+    </button> 
+  </div>
+
 </div>

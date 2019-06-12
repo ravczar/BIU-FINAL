@@ -13,7 +13,7 @@ export const PEOPLE: Person[] = [
     adress: {
       city: 'Gdansk',
       street: 'Dlugie Ogrody',
-      builidng: '4',
+      building: '4',
       flat: '54'
     },
     score: [],
@@ -33,7 +33,7 @@ export const PEOPLE: Person[] = [
     adress: {
       city: 'Gdansk',
       street: 'Szopy',
-      builidng: '1',
+      building: '1',
       flat: '67'
     },
     score: [],
@@ -53,7 +53,7 @@ export const PEOPLE: Person[] = [
     adress: {
       city: 'Warszawa',
       street: 'Uciażliwa',
-      builidng: '3',
+      building: '3',
       flat: '8'
     },
     score: [],
@@ -73,11 +73,11 @@ export const PEOPLE: Person[] = [
     adress: {
       city: 'Łódź',
       street: 'Wiosenna',
-      builidng: '1',
+      building: '1',
       flat: '6'
     },
-    score: [],
-    time: [],
+    score: [3,4,5],
+    time: [3,5,7],
     
     newsletter: false
   },
@@ -93,7 +93,7 @@ export const PEOPLE: Person[] = [
     adress: {
       city: 'Gdynia',
       street: 'Rakoczego',
-      builidng: '6',
+      building: '6',
       flat: '26'
     },
     score: [],
@@ -113,7 +113,7 @@ export const PEOPLE: Person[] = [
     adress: {
       city: 'Gdynia',
       street: 'Rakoczego',
-      builidng: '6',
+      building: '6',
       flat: '26'
     },
     score: [],
@@ -133,7 +133,7 @@ export const PEOPLE: Person[] = [
     adress: {
       city: 'Gdynia',
       street: 'Świętego Dominika',
-      builidng: '2',
+      building: '2',
       flat: '22'
     },
     score: [],
@@ -153,7 +153,7 @@ export const PEOPLE: Person[] = [
     adress: {
       city: 'Sopot',
       street: 'Bohaterów Montecasino',
-      builidng: '1',
+      building: '1',
       flat: '16'
     },
     score: [],
@@ -173,7 +173,7 @@ export const PEOPLE: Person[] = [
     adress: {
       city: 'Sopot',
       street: 'Bohaterów Montecasino',
-      builidng: '3',
+      building: '3',
       flat: '133'
     },
     score: [],
