@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators, AbstractControl } from "@angular/forms";
 import { debounceTime } from 'rxjs/operators';
 import { MessageService } from '../services/message.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 function passwordMatcher(c: AbstractControl):{[key:string]:boolean}|null{   
   let passwordControl = c.get('password');   
@@ -23,8 +24,6 @@ function passwordMatcher(c: AbstractControl):{[key:string]:boolean}|null{
 })
 export class UserFormComponent implements OnInit {
 
-  
-
   // Słownik dla matchPasswordsMsg
   passwordMessages={
     matchPasswords:"Passwords don't MATCH",     
@@ -40,7 +39,8 @@ export class UserFormComponent implements OnInit {
   
   constructor(
     private formBuilder: FormBuilder,
-    private messageService: MessageService,
+    private messageService: MessageService, 
+    private _snackBar: MatSnackBar,
     ) { }
 
   ngOnInit() {
@@ -58,6 +58,8 @@ export class UserFormComponent implements OnInit {
         Validators.pattern('[0-9]{9}')]],
       username:  ['',[Validators.required, 
         Validators.pattern('^[A-Za-z0-9_]{1,15}$')]],
+      newsletter: ['',[Validators.required, 
+        Validators.pattern('[0-1]')]],
       pswdGroup: this.formBuilder.group({         
         password:  ['',[Validators.required, 
           Validators.pattern( '((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{8,20})' )]],         
@@ -102,7 +104,8 @@ export class UserFormComponent implements OnInit {
       lastName: 'Czarnecki',
       email: 'ravczar@gmail.com',
       phone: '777222555',
-      username: 'ravczar'
+      username: 'ravczar',
+      newsletter: '1'
     });
     passwordGroup.patchValue({
       password: 'Rafal89#',
@@ -112,7 +115,7 @@ export class UserFormComponent implements OnInit {
 
   private viewUserDataEntered(): Array<string>{
     let inputs : Array<string> = new Array<string>();
-    let inputNames : Array<string> = ['First name', 'Last name', 'Email', 'Phone No.', 'Username', 'Password', 'C Password' ];
+    let inputNames : Array<string> = ['First name', 'Last name', 'Email', 'Phone No.', 'Username', 'Password', 'C Password', 'Subscribed' ];
     inputs.push(this.userForm.get("firstName").value);
     inputs.push(this.userForm.get("lastName").value);  
     inputs.push(this.userForm.get("email").value);  
@@ -120,6 +123,7 @@ export class UserFormComponent implements OnInit {
     inputs.push(this.userForm.get("username").value);  
     inputs.push(this.userForm.get("pswdGroup.password").value);  
     inputs.push(this.userForm.get("pswdGroup.cPassword").value);
+    inputs.push(this.userForm.get("newsletter").value);
     
       for (let i = 0; i < inputs.length; i++){
         console.log(inputNames[i] +" : "+ inputs[i]);
@@ -127,19 +131,31 @@ export class UserFormComponent implements OnInit {
     
       return inputs;
   }
+
+  openSuccessSnackBar(message: string, action: string) {
+    this._snackBar.open('User : '+ message + ', has been created! Press F12 to see your details!', action, {
+      duration: 4000,
+    });
+  }
+  openFailSnackBar(message: string, action: string) {
+    this._snackBar.open('Account is not created! Try again!', action, {
+      duration: 4000,
+    });
+  }
+
   onSubmit() {
     
     if(this.userForm.valid){
+      let username = this.userForm.get("username").value;
       this.messageService.add('User-Form: Submited form scuccessfully');
       this.viewUserDataEntered();
+      this.openSuccessSnackBar(username, 'Close');
+      this.userForm.reset();
     }
     else {
       this.messageService.add('User-Form: Form not submited - recheck fields');
-      alert("Please recheck your fileds, some might be still INVALID!")
+      this.openFailSnackBar('SHIT HAPPENED', 'Close');
     }
 }
-
-
-
 
 }

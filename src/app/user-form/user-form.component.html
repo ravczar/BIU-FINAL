@@ -19,7 +19,7 @@
             <input class="form-control" type="text" formControlName="firstName" [ngClass]="{
               'is-invalid':(userForm.get('firstName').touched || userForm.get('firstName').dirty)
                 &&!userForm.get('firstName').valid
-            }">
+            }" title="Please try: [A-z] Characters length:<2-20>">
             <span class="text-danger" *ngIf="userForm.get('firstName').errors?.pattern">
               Please try: [A-z] Characters length:<2-20>.
             </span>
@@ -32,7 +32,7 @@
             <input class="form-control" type="text" formControlName="lastName" [ngClass]="{
               'is-invalid':(userForm.get('lastName').touched || userForm.get('lastName').dirty)
                 &&!userForm.get('lastName').valid
-            }">
+            }" title="Please try: [A-z] Characters length:<2-50>">
           </div>
           <span class="text-danger" *ngIf="userForm.get('lastName').errors?.pattern">
               Please try: [A-z] Characters length:<2-50>.
@@ -45,7 +45,7 @@
             <input class="form-control" type="text"  formControlName="email" [ngClass]="{
               'is-invalid':(userForm.get('email').touched || userForm.get('email').dirty)
                 &&!userForm.get('email').valid
-            }">
+            }" title="Email must be a valid email address. Just like retard@xx.yy">
           </div>
           <span class="text-danger" *ngIf="userForm.get('email').errors?.email">
               Email must be a valid email address. -> retard@xx.yy
@@ -58,7 +58,7 @@
             <input class="form-control" type="text"  formControlName="phone" [ngClass]="{
               'is-invalid':(userForm.get('phone').touched || userForm.get('phone').dirty)
                 &&!userForm.get('phone').valid
-            }">
+            }" title="Wrong Phone number! -> Right pattern: 777222999, no spaces or dashes.">
             <span class="text-danger" *ngIf="userForm.get('phone').errors?.pattern">
               Wrong Phone number! -> Right pattern: 777222999, no spaces or dashes.
             </span>
@@ -68,10 +68,10 @@
         <div class="form-group">
           <label class="col-md-3 control-label">Username:</label>
           <div class="col-md-8">
-            <input class="form-control" type="text"  formControlName="username" [ngClass]="{
+            <input #username class="form-control" type="text"  formControlName="username" [ngClass]="{
               'is-invalid':(userForm.get('username').touched || userForm.get('username').dirty)
                 &&!userForm.get('username').valid
-            }">
+            }" title="'A-z' & 'a-z' ,'0-9', '_', min 1 max 15 char." >
             <span *ngIf="userExists" class="text-danger">this user already exists !</span>
             <span class="text-danger" *ngIf="userForm.get('username').errors?.pattern">
                 Wrong username format! -> "A-z" & "a-z" ,"0-9", "_", min 1 max 15 char.
@@ -93,7 +93,7 @@
               <input class="form-control" type="password"  formControlName="password" [ngClass]="{
                 'is-invalid':(userForm.get('pswdGroup.password').touched || userForm.get('pswdGroup.password').dirty)
                   &&!userForm.get('pswdGroup.password').valid
-              }">
+              }" title="1 Big letter, 1 small letter, 1 special character #,$,%,@, min 8 characters total.">
               <span class="text-danger" *ngIf="userForm.get('pswdGroup.password').errors?.pattern">
                   {{passwordPatternMsg}}
               </span> 
@@ -103,16 +103,25 @@
           <div class="form-group">
             <label class="col-md-3 control-label">Confirm password:</label>
             <div class="col-md-8">
-              <input class="form-control" type="password"  formControlName="cPassword">
+              <input class="form-control" type="password"  formControlName="cPassword" title="Must match your the previous field">
               <span class="text-danger" *ngIf="userForm.get('pswdGroup').errors?.matchPasswords" >                 
                   {{matchPasswordsMsg}}      
               </span> 
             </div>
           </div>
-        </div>            
- <!-- Grupa hasła Koniec -->   
- 
- 
+        </div>    <!-- Grupa hasła Koniec -->   
+
+        <div class="form-group">       
+          <label class="col-md-3 control-label">Want to know more?</label>
+          <div class="col-md-8">
+              <div class="checkbox">
+                  <input type="checkbox" id="newsletter" formControlName="newsletter" 
+                  title="Can be ticked or not :-)"  ng-true-value="'1'" ng-false-value="'0'" >
+                  <label for="inlineRadio3lg"> Subscribe now </label>
+              </div>
+          </div>
+        </div>
+
         <div class="form-group">
           <label class="col-md-3 control-label"></label>
           <div class="col-md-8">

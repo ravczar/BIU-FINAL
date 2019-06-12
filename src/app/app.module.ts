@@ -6,10 +6,11 @@ import { FormsModule, ReactiveFormsModule}    from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 
 
-// Angular - material
+// Angular - Material
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //import { NoopAnimationsModule } from '@angular/platform-browser/animations';  // Disabling animations
 import { MatButtonModule, MatCheckboxModule } from '@angular/material';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 // Components
 import { AppComponent } from './app.component';
@@ -36,9 +37,9 @@ import { UserFormComponent } from './user-form/user-form.component';
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    //NoopAnimationsModule, // Disabling animations
     MatButtonModule, 
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatSnackBarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
