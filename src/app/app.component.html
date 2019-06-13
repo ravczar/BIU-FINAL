@@ -1,9 +1,43 @@
-<h1 class="text-primary bg-success">{{title}}</h1>
+<!--<h1 class="text-primary bg-success">{{title}}</h1>
 <nav>
   <a routerLink="/user-form">Register</a>
   <a routerLink="/navigation">Top 4</a>
   <a routerLink="/people">People</a>
   <a routerLink="/messages">Messages</a>
-</nav>
+</nav>-->
+
+<div class="card text-center">
+    <h1 class="text-primary bg-success">{{title}}</h1>
+    <div class="card-header">
+      <ul class="nav nav-tabs card-header-tabs">
+        <li class="nav-item">
+            <a name="btnRegister" value="odbyt" class="nav-link {{buttons.btnRegister}}"  routerLink="/user-form"
+            (click)="this.addClassActiveOrRemove( 'btnRegister' )" >Register</a>
+        </li>
+        <li class="nav-item link" >
+          <a name="btnTop" class="nav-link {{buttons.btnTop}}" routerLink="/navigation"
+          (click)="addClassActiveOrRemove( 'btnTop' )">Top 4</a>
+        </li>
+        <li class="nav-item">
+          <a name="btnPeople" class="nav-link {{buttons.btnPeople}}" routerLink="/people"
+          (click)="addClassActiveOrRemove( 'btnPeople' )">People</a>
+        </li>
+        <li class="nav-item">
+            <a name="btnMessages" class="nav-link {{buttons.btnMessages}}" routerLink="/messages"
+            (click)="addClassActiveOrRemove( 'btnMessages' )">Messages</a>
+        </li>
+      </ul>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Special title treatment</h5>
+      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+  </div>
+
+
+
+
+
 <router-outlet></router-outlet>
 <!-- <app-messages></app-messages> -->
