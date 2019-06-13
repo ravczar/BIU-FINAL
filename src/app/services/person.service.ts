@@ -28,8 +28,7 @@ export class PersonService {
   }
 
   getPersonWithSortedScores ( order :string ) : Observable<Person[]> {
-    //filtruje PEOPLE i zwraca pofiltrowaną. Z tego potem wytniemy górne wyniki (t0p 5)
-    //https://flaviocopes.com/how-to-sort-array-of-objects-by-property-javascript/
+    //filtruje PEOPLE i zwraca pofiltrowaną. Z tego potem wytniemy górne wyniki (t0p 5) //https://flaviocopes.com/how-to-sort-array-of-objects-by-property-javascript/
     if(order =="DESC"){
       this.messageService.add(`PersonService: fetching sorted DESC list of PPL.`); // Send message to message.service
       PEOPLE.sort((x, y) => x.score[0] - y.score[0] );
