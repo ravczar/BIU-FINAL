@@ -32,12 +32,79 @@
             <input class="form-control" type="text" formControlName="lastName" [ngClass]="{
               'is-invalid':(userForm.get('lastName').touched || userForm.get('lastName').dirty)
                 &&!userForm.get('lastName').valid
-            }" title="Please try: [A-z] Characters length:<2-50>">
+            }" title="Please try: [A-z] Characters length:<2-10>">
           </div>
           <span class="text-danger" *ngIf="userForm.get('lastName').errors?.pattern">
               Please try: [A-z] Characters length:<2-50>.
           </span>
         </div>
+
+        <div class="form-group">
+          <label class="col-lg-3 control-label">Chose your pet wisely:</label>
+          <div class="col-lg-8">
+            <select formControlName="pet" class="browser-default custom-select" 
+            title="Account retrieval purposes. Default - Monkey">
+              <option value="0" selected>Monkey</option>
+              <option value="1">Dog</option>
+              <option value="2">Cat</option>
+              <option value="3">Parrot</option>
+              <option value="4">Cow</option>
+              <option value="5">Patyczaki</option> 
+            </select>
+          </div>
+          <span class="text-danger" *ngIf="userForm.get('pet').errors?.pattern">
+            "You don't mess with HTML" ...
+          </span>
+        </div>
+
+        <h3>Address</h3>
+
+          <div class="form-group col-lg-8">
+            <label for="inputAddress">City</label>
+            <input type="text" class="form-control" id="city-id" placeholder="City" formControlName="city" [ngClass]="{
+              'is-invalid':(userForm.get('city').touched || userForm.get('city').dirty)
+                &&!userForm.get('city').valid
+                }" title="Provide city name: ">
+            <span class="text-danger" *ngIf="userForm.get('city').errors?.pattern">
+              Wrong city. Try Try 3-30 letter space and dash
+            </span>
+          </div>
+          <div class="form-group col-lg-8">
+            <label for="inputAddress2">Street</label>
+            <input type="text" class="form-control" id="street-id" placeholder="Street name" formControlName="street" [ngClass]="{
+              'is-invalid':(userForm.get('street').touched || userForm.get('street').dirty)
+                &&!userForm.get('street').valid
+                }" title="Provide street name:">
+            <span class="text-danger" *ngIf="userForm.get('street').errors?.pattern">
+              Wrong street. Try 3-60 letter space and dash
+            </span>
+          </div>
+          <div class="form-row col-lg-8">
+              <div class="form-group col-md-6">
+                <label for="inputEmail4">Building</label>
+                <input type="email" class="form-control" id="building-id" placeholder="Building No." formControlName="building" [ngClass]="{
+                  'is-invalid':(userForm.get('building').touched || userForm.get('building').dirty)
+                    &&!userForm.get('building').valid
+                    }" title="Provide building no:">
+                <span class="text-danger" *ngIf="userForm.get('building').errors?.pattern">
+                  Wrong building number. Try 1-3 digit and 1 letter
+                </span>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="inputPassword4">Flat</label>
+                <input type="text" class="form-control" id="flat-id" placeholder="Flat No." formControlName="flat" [ngClass]="{
+                  'is-invalid':(userForm.get('flat').touched || userForm.get('flat').dirty)
+                    &&!userForm.get('flat').valid
+                    }" title="Provide flat no:">
+                <span class="text-danger" *ngIf="userForm.get('flat').errors?.pattern">
+                  Wrong flat number. Try 1-3 digit and 1 letter 
+                </span>
+              </div>
+          </div>
+        
+
+
+        <h3>Contact</h3>
 
         <div class="form-group">
           <label class="col-lg-3 control-label">Email:</label>
@@ -65,6 +132,8 @@
           </div>
         </div>
 
+        <h3>Account</h3>
+
         <div class="form-group">
           <label class="col-md-3 control-label">Username:</label>
           <div class="col-md-8">
@@ -78,7 +147,8 @@
             </span>
           </div>
         </div>
- <!-- Grupa hasła -->       
+
+        <!-- Grupa hasła -->       
         <div formGroupName="pswdGroup" [ngClass]="{     
           'has-error':userForm.get('pswdGroup').errors
           }"> 
@@ -109,16 +179,20 @@
               </span> 
             </div>
           </div>
-        </div>    <!-- Grupa hasła Koniec -->   
+        </div>    
+        <!-- Grupa hasła Koniec -->   
 
         <div class="form-group">       
           <label class="col-md-3 control-label">Want to know more?</label>
           <div class="col-md-8">
               <div class="checkbox">
-                  <input type="checkbox" id="newsletter" formControlName="newsletter" 
-                  title="Can be ticked or not :-)"  ng-true-value="'1'" ng-false-value="'0'" >
+                  <input type="checkbox" name="checkbox" id="newsletter" formControlName="newsletter" 
+                  title="Must subscribe to in order to register, you can change it later on in your acc settings" > <!-- ng-true-value="'1'" ng-false-value="'0'" -->
                   <label for="inlineRadio3lg"> Subscribe now </label>
               </div>
+              <span class="text-danger" *ngIf="!userForm.get('newsletter').valid" >                 
+                  Must check it to register!      
+              </span>
           </div>
         </div>
 

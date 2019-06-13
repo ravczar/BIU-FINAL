@@ -28,15 +28,9 @@ export class PersonService {
   }
 
   // Będzie potrzebny w user-form przy dodawaniu nowego usera on Submit
-  setPerson(Id:number, Name:string, Surname:string, Email: string, Phone: string, Username: string, Password: string, PreviousPassword: string, Pet: string, City: string, Street: string, Building: string, Flat: string, Newsletter: boolean):void{
-    console.log("DODAJEMY NOWEGO USERA: " + Id + ", "+ Name + ", " + ", " + Surname + ", " + Email);
-    let userAdress = {city: City, street: Street, building: Building, flat: Flat};
-    
-    let persona = new Person(
-      Id, Name, Surname, Email, Phone, Username, Password, PreviousPassword, Pet, userAdress , Newsletter
-    );
-    
+  setPerson(persona: Person):void{
     PEOPLE.push(persona);
+    this.messageService.add(`PersonService: Successfully added new PERSON username=${persona.username}`);
   }
-  
+
 }
