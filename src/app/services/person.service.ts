@@ -22,8 +22,8 @@ export class PersonService {
   }
 
   // Będzie potrzebne w user-forms do sprawdzani czy w bazie* jest już gość o danym username !
-  getPersonByEmail(username: string): Observable<Person> {
-    this.messageService.add(`PersonService: fetched certain PERSON username=${username}`); // Send message to message.service
+  getPersonByUsername(username: string): Observable<Person> {
+    this.messageService.add(`PersonService: Just checking if username=${username}. already exist in Players DataBase`); // Send message to message.service
     return of(PEOPLE.find(person => person.username === username));
   }
 

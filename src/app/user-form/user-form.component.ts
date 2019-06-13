@@ -84,9 +84,24 @@ export class UserFormComponent implements OnInit {
     });
 
     this.userForm.get('username').valueChanges.pipe(debounceTime(1000)).subscribe(value=>{
-      if(value==='admin')
+      let OsobaSprawdzana: Person;
+
+      this.personService.getPersonByUsername( value )
+          .subscribe(person => OsobaSprawdzana = person);
+
+      console.log( "ZMIENNA : DoesThisPersonAlreadyExist :: " + OsobaSprawdzana );
+
+      if( OsobaSprawdzana != undefined) {
+        this.userExists = true;
+        this.messageService.add(`User-Form: Someone tried to add existing user: ${value}.`);
+      }
+      else {
+        this.userExists=false;
+      }
+      /*if(value==='admin')
         this.userExists=true;
       else this.userExists=false;
+      */
     });
     
     // Logic filling  ‘passwordPatternMsg’ and ’matchPasswordsMsg’ 
@@ -206,7 +221,7 @@ export class UserFormComponent implements OnInit {
 
   onSubmit() {
     
-    if(this.userForm.valid){
+    if(this.userForm.valid && !this.userExists){
       let username = this.userForm.get("username").value;
       this.messageService.add('User-Form: Submited form scuccessfully requesitng add new person from person-service');
       let personToBeAddedToForm = this.viewUserDataEntered(); //  zwraca nam zbudowaną osobe: Person do wysłania do serwisu
