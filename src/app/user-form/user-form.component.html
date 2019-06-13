@@ -22,6 +22,7 @@
             }" title="Please try: [A-z] Characters length:<2-20>">
             <span class="text-danger" *ngIf="userForm.get('firstName').errors?.pattern">
               Please try: [A-z] Characters length:<2-20>.
+              <fa class="display-4 text-warning" name="cog" animation="spin"></fa>
             </span>
           </div>
         </div>
@@ -36,6 +37,7 @@
           </div>
           <span class="text-danger" *ngIf="userForm.get('lastName').errors?.pattern">
               Please try: [A-z] Characters length:<2-50>.
+              <fa class="display-4 text-warning" name="cog" animation="spin"></fa>
           </span>
         </div>
 
@@ -54,6 +56,7 @@
           </div>
           <span class="text-danger" *ngIf="userForm.get('pet').errors?.pattern">
             "You don't mess with HTML" ...
+            <fa class="display-5 text-warning" name="cog" animation="spin"></fa>
           </span>
         </div>
 
@@ -67,6 +70,7 @@
                 }" title="Provide city name: ">
             <span class="text-danger" *ngIf="userForm.get('city').errors?.pattern">
               Wrong city. Try Try 3-30 letter space and dash
+              <fa class="display-5 text-warning" name="cog" animation="spin"></fa>
             </span>
           </div>
           <div class="form-group col-lg-8">
@@ -77,6 +81,7 @@
                 }" title="Provide street name:">
             <span class="text-danger" *ngIf="userForm.get('street').errors?.pattern">
               Wrong street. Try 3-60 letter space and dash
+              <fa class="display-5 text-warning" name="cog" animation="spin"></fa>
             </span>
           </div>
           <div class="form-row col-lg-8">
@@ -88,6 +93,7 @@
                     }" title="Provide building no:">
                 <span class="text-danger" *ngIf="userForm.get('building').errors?.pattern">
                   Wrong building number. Try 1-3 digit and 1 letter
+                  <fa class="display-5 text-warning" name="cog" animation="spin"></fa>
                 </span>
               </div>
               <div class="form-group col-md-6">
@@ -97,7 +103,8 @@
                     &&!userForm.get('flat').valid
                     }" title="Provide flat no:">
                 <span class="text-danger" *ngIf="userForm.get('flat').errors?.pattern">
-                  Wrong flat number. Try 1-3 digit and 1 letter 
+                  Wrong flat number. Try 1-3 digit and 1 letter
+                  <fa class="display-5 text-warning" name="cog" animation="spin"></fa> 
                 </span>
               </div>
           </div>
@@ -116,6 +123,7 @@
           </div>
           <span class="text-danger" *ngIf="userForm.get('email').errors?.email">
               Email must be a valid email address. -> retard@xx.yy
+              <fa class="display-5 text-warning" name="cog" animation="spin"></fa>
           </span>
         </div>
 
@@ -128,7 +136,9 @@
             }" title="Right pattern: +(48)737-727-327 / +(48)777111222 /+(48)777 111 222">
             <span class="text-danger" *ngIf="userForm.get('phone').errors?.pattern">
               Wrong Phone number! -> Right pattern: +(48)737-727-327 / +(48)777111222 /+(48)777 111 222 .
+              <fa class="display-5 text-warning" name="cog" animation="spin"></fa>
             </span>
+            <fa *ngIf="userExists" class="display-5 text-warning" name="cog" animation="spin"></fa>
           </div>
         </div>
 
@@ -141,10 +151,11 @@
               'is-invalid':(userForm.get('username').touched || userForm.get('username').dirty)
                 &&!userForm.get('username').valid
             }" title="'A-z' & 'a-z' ,'0-9', '_', min 1 max 15 char." >
-            <span *ngIf="userExists" class="text-danger">this user already exists !</span>
+            <span *ngIf="userExists" class="text-danger">this user already exists !</span> 
             <span class="text-danger" *ngIf="userForm.get('username').errors?.pattern">
-                Wrong username format! -> "A-z" & "a-z" ,"0-9", "_", min 1 max 15 char.
+              Wrong username format! -> "A-z" & "a-z" ,"0-9", "_", min 1 max 15 char.
             </span>
+            <fa *ngIf="userExists || userForm.get('username').errors?.pattern" class="display-5 text-warning" name="cog" animation="spin"></fa>
           </div>
         </div>
 
@@ -166,6 +177,7 @@
               }" title="1 Big letter, 1 small letter, 1 special character #,$,%,@, min 8 characters total.">
               <span class="text-danger" *ngIf="userForm.get('pswdGroup.password').errors?.pattern">
                   {{passwordPatternMsg}}
+                  <fa class="display-5 text-warning" name="cog" animation="spin"></fa>
               </span> 
             </div>
           </div>
@@ -175,7 +187,8 @@
             <div class="col-md-8">
               <input class="form-control" type="password"  formControlName="cPassword" title="Must match your the previous field">
               <span class="text-danger" *ngIf="userForm.get('pswdGroup').errors?.matchPasswords" >                 
-                  {{matchPasswordsMsg}}      
+                  {{matchPasswordsMsg}}  
+                  <fa class="display-5 text-warning" name="cog" animation="spin"></fa>    
               </span> 
             </div>
           </div>
@@ -191,7 +204,8 @@
                   <label for="inlineRadio3lg"> Subscribe now </label>
               </div>
               <span class="text-danger" *ngIf="!userForm.get('newsletter').valid" >                 
-                  Must check it to register!      
+                  Must check it to register! 
+                  <fa class="display-5 text-warning" name="cog" animation="spin"></fa>     
               </span>
           </div>
         </div>
