@@ -18,6 +18,8 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { PeopleComponent } from './people/people.component';
 import { PersonDetailComponent } from './person-detail/person-detail.component';
 import { UserFormComponent } from './user-form/user-form.component';
+import { StopwatchComponent } from './stopwatch/stopwatch.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
@@ -27,7 +29,9 @@ import { UserFormComponent } from './user-form/user-form.component';
     NavigationComponent,
     PeopleComponent,
     PersonDetailComponent,
-    UserFormComponent
+    UserFormComponent,
+    StopwatchComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

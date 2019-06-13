@@ -23,6 +23,11 @@
             (click)="addClassActiveOrRemove( 'btnMessages' )" 
             [ngClass]="buttons.btnMessages" >Messages</a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link " routerLink="/stopwatch"
+            (click)="addClassActiveOrRemove( 'btnStopwatch' )" 
+            [ngClass]="buttons.btnStopwatch" >Stopwatch</a>
+        </li>
       </ul>
     </div>
 
@@ -44,35 +49,40 @@
         <li class="list-group-item">
             <p class="card-text">User-Form</p>
         </li>
-      </ul>
-
-      <ul id="services" class="list-group col-md-4 float-left text-warning ">
-        <h5 class="card-title">Services</h5>
         <li class="list-group-item">
-            <p class="card-text">Person-Service</p>
+            <p class="card-text">Stopwatch</p>
         </li>
         <li class="list-group-item">
-            <p class="card-text">Message-Service</p>
+            <p class="card-text">Footer</p>
         </li>
       </ul>
 
-      <ul id="data-files" class="list-group col-md-4 text-danger ">
-          <h5 class="card-title">Data files</h5>
-          <li class="list-group-item">
-              <p class="card-text">Person</p>
-          </li>
-          <li class="list-group-item">
-              <p class="card-text">Mock-People</p>
-          </li>
-      </ul>
-      <p class="card-text">Below you will see components appear when you use above navigation.</p>
-      <a href="#" class="btn btn-primary">Reset all page here CTRL + F5</a>
+        <ul id="services" class="list-group col-md-4 float-left text-warning ">
+            <h5 class="card-title">Services</h5>
+            <li class="list-group-item">
+                <p class="card-text">Person-Service</p>
+            </li>
+            <li class="list-group-item">
+              <p class="card-text">Message-Service</p>
+            </li>
+        </ul>
+
+        <ul id="data-files" class="list-group col-md-4 text-danger ">
+            <h5 class="card-title">Data files</h5>
+            <li class="list-group-item">
+                <p class="card-text">Person</p>
+            </li>
+            <li class="list-group-item">
+                <p class="card-text">Mock-People</p>
+            </li>
+        </ul>
+        <div id="ending" class=" mt-3 col-md-4 float-left d-flex align-items-center">
+            <p class="card-text w-100">Below you will see components appear when you use above navigation.</p>
+            <a href="#" class="btn btn-primary">Reset all page here CTRL + F5</a>
+        </div>
     </div>
   </div>
 
-
-
-
-
-<router-outlet></router-outlet>
-<!-- <app-messages></app-messages> -->
+  <router-outlet></router-outlet>
+  
+  <app-footer></app-footer>

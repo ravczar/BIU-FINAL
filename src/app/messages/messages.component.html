@@ -1,4 +1,4 @@
-<section *ngIf="messageService.messages.length" class="bg-light h-75 col-md-4">
+<section *ngIf="messageService.messages.length" class="bg-light h-50 col-md-4">
   <span class="text-primary display-4 mt-1">Messages</span>
   <button class="btn btn-lg btn-danger float-right mt-3"
           (click)="messageService.clear()">clear</button>
@@ -11,6 +11,6 @@
   </ul>
 </section>
 
-<section *ngIf="!messageService.messages.length"> 
-  <span class="display-4 text-warning"> No message to display here (Click something)</span>
+<section class="w-25 h-50 bg-light text-center" *ngIf="!messageService.messages.length"> 
+  <span class="display-4 text-warning"> No message to display here (Click something)..</span>
 </section>

@@ -16,6 +16,7 @@ export class AppComponent  {
    btnTop : 'active',
    btnPeople : 'link',
    btnMessages :'link',
+   btnStopwatch: 'link'
   };
 
   clearAllToLinkClass (){
@@ -23,6 +24,7 @@ export class AppComponent  {
     this.buttons.btnPeople = 'link';
     this.buttons.btnRegister = 'link';
     this.buttons.btnTop = 'link';
+    this.buttons.btnStopwatch = 'link';
   }
 
   addClassActiveOrRemove(name:string){
@@ -31,6 +33,7 @@ export class AppComponent  {
     else if(name === 'btnTop') number = 1; 
     else if(name === 'btnPeople') number = 2; 
     else if(name === 'btnMessages') number = 3; 
+    else if(name === 'btnStopwatch') number = 4; 
 
     if(this.buttons[`${name}`] == 'link'){
       this.clearAllToLinkClass ();

@@ -6,6 +6,7 @@ import { PeopleComponent }      from './people/people.component';
 import { PersonDetailComponent }  from './person-detail/person-detail.component';
 import { UserFormComponent } from './user-form/user-form.component';
 import { MessagesComponent } from './messages/messages.component';
+import { StopwatchComponent } from './stopwatch/stopwatch.component';
 
 
 const routes: Routes = [
@@ -14,7 +15,8 @@ const routes: Routes = [
   { path: 'detail/:id', component: PersonDetailComponent },
   { path: 'people', component: PeopleComponent },
   { path: 'user-form', component: UserFormComponent},
-  { path: 'messages', component: MessagesComponent}
+  { path: 'messages', component: MessagesComponent},
+  { path: 'stopwatch', component: StopwatchComponent}
 ];
 
 @NgModule({
