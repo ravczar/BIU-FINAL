@@ -1,9 +1,27 @@
-<h3>Top People</h3>
-<div class="grid grid-pad">
-  <a *ngFor="let person of people" class="col-1-4"
+<section id="people-list" class="bg-success w-50 h-75 col-md-6 float-left" >
+  <span class="text-warning display-4 ">Navigate Top Players</span>
+  <ul id="top-people" class="list-group col-md-4 ml-3">
+    <li *ngFor="let person of peopleBest; let i = index" 
+    routerLink="/detail/{{person.id}}">
+      <a class="list-group-item list-group-item list-group-item-secondary">
+        <span class="display-5">
+          {{i+1}}) {{person.name}} | Scores: {{person.score}}
+        </span>
+      </a>
+    </li>
+  </ul>
+</section>
+
+<section id="people-list" class="bg-danger w-50 h-75 col-md-6 float-left" >
+    <span class="text-warning display-4 ">Navigate Worst Players</span>
+    <ul id="top-people" class="list-group col-md-4 ml-3">
+      <li *ngFor="let person of peopleWorst; let i = index" 
       routerLink="/detail/{{person.id}}">
-    <div class="module hero">
-      <h4>{{person.name}}</h4>
-    </div>
-  </a>
-</div>
+        <a class="list-group-item list-group-item list-group-item-secondary">
+          <span class="display-5">
+            {{i+1}}) {{person.name}} | Scores: {{person.score}}
+          </span>
+        </a>
+      </li>
+    </ul>
+</section>

@@ -16,8 +16,8 @@ export let PEOPLE: Person[] = [
       building: '4',
       flat: '54'
     },
-    score: [],
-    time: [],
+    score: [31],
+    time: [4],
     
     newsletter: false
   },
@@ -36,8 +36,8 @@ export let PEOPLE: Person[] = [
       building: '1',
       flat: '67'
     },
-    score: [],
-    time: [],
+    score: [30],
+    time: [5],
     
     newsletter: false
   },
@@ -56,8 +56,8 @@ export let PEOPLE: Person[] = [
       building: '3',
       flat: '8'
     },
-    score: [],
-    time: [],
+    score: [23],
+    time: [5],
     
     newsletter: false
   },
@@ -76,8 +76,8 @@ export let PEOPLE: Person[] = [
       building: '1',
       flat: '6'
     },
-    score: [3,4,5],
-    time: [3,5,7],
+    score: [10],
+    time: [5],
     
     newsletter: false
   },
@@ -96,8 +96,8 @@ export let PEOPLE: Person[] = [
       building: '6',
       flat: '26'
     },
-    score: [],
-    time: [],
+    score: [11],
+    time: [2],
     
     newsletter: false
   },
@@ -116,8 +116,8 @@ export let PEOPLE: Person[] = [
       building: '6',
       flat: '26'
     },
-    score: [],
-    time: [],
+    score: [22],
+    time: [7],
     
     newsletter: false
   },
@@ -136,8 +136,8 @@ export let PEOPLE: Person[] = [
       building: '2',
       flat: '22'
     },
-    score: [],
-    time: [],
+    score: [20],
+    time: [6],
     
     newsletter: false
   },
@@ -156,8 +156,8 @@ export let PEOPLE: Person[] = [
       building: '1',
       flat: '16'
     },
-    score: [],
-    time: [],
+    score: [30],
+    time: [5],
     
     newsletter: false
   },
@@ -176,8 +176,8 @@ export let PEOPLE: Person[] = [
       building: '3',
       flat: '133'
     },
-    score: [],
-    time: [],
+    score: [28],
+    time: [6],
     
     newsletter: false
   }

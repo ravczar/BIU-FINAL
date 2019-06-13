@@ -1,9 +1,11 @@
-<h2>My People</h2>
-<ul class="heroes">
-  <li *ngFor="let person of people">
-    <a routerLink="/detail/{{person.id}}">
-      <span class="badge">{{person.id}}</span> {{person.name}} 
-      <!-- {{person.surname}} {{person.email}} {{person.password}} {{person.pet}} {{person.newsletter}} -->
-    </a>
-  </li>
-</ul>
+<section id="people-list" class="bg-secondary h-75 col-md-4" >
+  <span class="text-warning display-4">My People</span>
+  <ul id="people" class="list-group" >
+    <li  *ngFor="let person of people">
+      <a class="list-group-item list-group-item list-group-item-secondary" routerLink="/detail/{{person.id}}">
+        <span class="text-primary ">Position: {{person.id}}</span> Name: {{person.name}} 
+        <!-- {{person.surname}} {{person.email}} {{person.password}} {{person.pet}} {{person.newsletter}} -->
+      </a>
+    </li>
+  </ul>
+</section>

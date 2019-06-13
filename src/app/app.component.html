@@ -1,6 +1,6 @@
 
 <div class="card text-center">
-    <h1 class="text-primary bg-success">{{title}}</h1>
+    <h1 class="text-primary bg-warning text-secondary">{{title}}</h1>
     <div class="card-header">
       <ul class="nav nav-tabs card-header-tabs">
         <li class="nav-item">
@@ -11,7 +11,7 @@
         <li class="nav-item link" >
           <a class="nav-link " routerLink="/navigation"
           (click)="addClassActiveOrRemove( 'btnTop' )"  
-          [ngClass]="buttons.btnTop" >Top 4</a>
+          [ngClass]="buttons.btnTop" >Navigate Top Players</a>
         </li>
         <li class="nav-item">
           <a class="nav-link " routerLink="/people"
@@ -27,8 +27,7 @@
     </div>
 
     <div class="card-body">
-      <h5 class="card-title col-md-3">Welcome to my BIU Final </h5>
-      <ul id="components" class="list-group col-md-3 float-left">
+      <ul id="components" class="list-group col-md-4 float-left text-primary">
         <h5 class="card-title">Components</h5>
         <li class="list-group-item" >
             <p class="card-text">Messages</p>
@@ -47,7 +46,7 @@
         </li>
       </ul>
 
-      <ul id="services" class="list-group col-md-3 float-left">
+      <ul id="services" class="list-group col-md-4 float-left text-warning ">
         <h5 class="card-title">Services</h5>
         <li class="list-group-item">
             <p class="card-text">Person-Service</p>
@@ -57,7 +56,7 @@
         </li>
       </ul>
 
-      <ul id="data-files" class="list-group col-md-3 ">
+      <ul id="data-files" class="list-group col-md-4 text-danger ">
           <h5 class="card-title">Data files</h5>
           <li class="list-group-item">
               <p class="card-text">Person</p>

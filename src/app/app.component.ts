@@ -7,7 +7,7 @@ import { Input, Component, OnInit } from '@angular/core';
 })
 export class AppComponent  {
 
-  title = 'Quiz BIU';
+  title = 'Welcome to my BIU Final';
   someclass= 'active';
 
 

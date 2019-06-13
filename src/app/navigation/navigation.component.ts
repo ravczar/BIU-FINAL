@@ -9,15 +9,29 @@ import { PersonService } from '../services/person.service';
 })
 export class NavigationComponent implements OnInit {
   people: Person[] = [];
+  peopleBest: Person[] = [];
+  peopleWorst: Person[] = [];
 
   constructor(private personService: PersonService) { }
 
   ngOnInit() {
-    this.getPeople();
+    this.getBestPlayers();
+    this.getWorstPlayers();
   }
 
   getPeople(): void {
     this.personService.getPeople()
-      .subscribe(people => this.people = people.slice(1, 5));
+      .subscribe(people => this.people = people.slice(0, 5));
   }
+
+  getBestPlayers(): void {
+    this.personService.getPersonWithSortedScores("ASC")
+      .subscribe(people => this.peopleBest = people.slice(0, 5));
+  }
+
+  getWorstPlayers(): void {
+    this.personService.getPersonWithSortedScores("DESC")
+      .subscribe(people => this.peopleWorst = people.slice(0, 5));
+  }
+
 }

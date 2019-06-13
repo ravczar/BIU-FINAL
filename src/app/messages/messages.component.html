@@ -1,11 +1,16 @@
-<div *ngIf="messageService.messages.length">
-
-  <h2>Messages</h2>
-  <button class="clear"
+<section *ngIf="messageService.messages.length" class="bg-light h-75 col-md-4">
+  <span class="text-primary display-4 mt-1">Messages</span>
+  <button class="btn btn-lg btn-danger float-right mt-3"
           (click)="messageService.clear()">clear</button>
-  <div *ngFor="let message of messageService.messages; let i = index;"> 
-    <label>Msg:{{i}} )</label>
-    <span>{{message}} </span>
-  </div>
+  <ul id="message" class="list-group">       
+    <li class="list-group-item list-group-item list-group-item-secondary" 
+    *ngFor="let message of messageService.messages; let i = index;"> 
+      <label class="text-primary">Msg:{{i}} )</label>
+      <span class="text-danger">{{message}} </span>
+    </li>
+  </ul>
+</section>
 
-</div>
+<section *ngIf="!messageService.messages.length"> 
+  <span class="display-4 text-warning"> No message to display here (Click something)</span>
+</section>
