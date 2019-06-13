@@ -1,37 +1,73 @@
-<!--<h1 class="text-primary bg-success">{{title}}</h1>
-<nav>
-  <a routerLink="/user-form">Register</a>
-  <a routerLink="/navigation">Top 4</a>
-  <a routerLink="/people">People</a>
-  <a routerLink="/messages">Messages</a>
-</nav>-->
 
 <div class="card text-center">
     <h1 class="text-primary bg-success">{{title}}</h1>
     <div class="card-header">
       <ul class="nav nav-tabs card-header-tabs">
         <li class="nav-item">
-            <a name="btnRegister" value="odbyt" class="nav-link {{buttons.btnRegister}}"  routerLink="/user-form"
-            (click)="this.addClassActiveOrRemove( 'btnRegister' )" >Register</a>
+            <a value="odbyt" class="nav-link "  routerLink="/user-form"
+            (click)="this.addClassActiveOrRemove( 'btnRegister' )" 
+            [ngClass]="buttons.btnRegister" >Register</a>
         </li>
         <li class="nav-item link" >
-          <a name="btnTop" class="nav-link {{buttons.btnTop}}" routerLink="/navigation"
-          (click)="addClassActiveOrRemove( 'btnTop' )">Top 4</a>
+          <a class="nav-link " routerLink="/navigation"
+          (click)="addClassActiveOrRemove( 'btnTop' )"  
+          [ngClass]="buttons.btnTop" >Top 4</a>
         </li>
         <li class="nav-item">
-          <a name="btnPeople" class="nav-link {{buttons.btnPeople}}" routerLink="/people"
-          (click)="addClassActiveOrRemove( 'btnPeople' )">People</a>
+          <a class="nav-link " routerLink="/people"
+          (click)="addClassActiveOrRemove( 'btnPeople' )" 
+          [ngClass]="buttons.btnPeople" >People</a>
         </li>
         <li class="nav-item">
-            <a name="btnMessages" class="nav-link {{buttons.btnMessages}}" routerLink="/messages"
-            (click)="addClassActiveOrRemove( 'btnMessages' )">Messages</a>
+            <a class="nav-link " routerLink="/messages"
+            (click)="addClassActiveOrRemove( 'btnMessages' )" 
+            [ngClass]="buttons.btnMessages" >Messages</a>
         </li>
       </ul>
     </div>
+
     <div class="card-body">
-      <h5 class="card-title">Special title treatment</h5>
-      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
+      <h5 class="card-title col-md-3">Welcome to my BIU Final </h5>
+      <ul id="components" class="list-group col-md-3 float-left">
+        <h5 class="card-title">Components</h5>
+        <li class="list-group-item" >
+            <p class="card-text">Messages</p>
+        </li>
+        <li class="list-group-item">
+            <p class="card-text">Navigation</p>
+        </li>
+        <li class="list-group-item">
+            <p class="card-text">People</p>
+        </li>
+        <li class="list-group-item">
+            <p class="card-text">Person-Detail</p>
+        </li>
+        <li class="list-group-item">
+            <p class="card-text">User-Form</p>
+        </li>
+      </ul>
+
+      <ul id="services" class="list-group col-md-3 float-left">
+        <h5 class="card-title">Services</h5>
+        <li class="list-group-item">
+            <p class="card-text">Person-Service</p>
+        </li>
+        <li class="list-group-item">
+            <p class="card-text">Message-Service</p>
+        </li>
+      </ul>
+
+      <ul id="data-files" class="list-group col-md-3 ">
+          <h5 class="card-title">Data files</h5>
+          <li class="list-group-item">
+              <p class="card-text">Person</p>
+          </li>
+          <li class="list-group-item">
+              <p class="card-text">Mock-People</p>
+          </li>
+      </ul>
+      <p class="card-text">Below you will see components appear when you use above navigation.</p>
+      <a href="#" class="btn btn-primary">Reset all page here CTRL + F5</a>
     </div>
   </div>
 
